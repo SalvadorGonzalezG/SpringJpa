@@ -1,5 +1,8 @@
 package org.example.models;
 
+import lombok.ToString;
+
+@ToString
 public class RealityStone extends Stone{
 
     private static final String COLOR = "";
@@ -12,6 +15,6 @@ public class RealityStone extends Stone{
     }
     @Override
     public void usePower(){
-
+        System.out.print("Change the Reality completment" + this.toString());
     }
 }

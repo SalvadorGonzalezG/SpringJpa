@@ -1,5 +1,8 @@
 package org.example.models;
 
+import lombok.ToString;
+
+@ToString
 public class PowerStone extends Stone{
 
     private static final String COLOR = "Purple";
@@ -11,6 +14,6 @@ public class PowerStone extends Stone{
         super(COLOR, NAME, LOCATION, ENERGY_LAVEL);
     }
     public void usePower(){
-        System.out.println("");
+        System.out.println("Increment power & Energy " + this.toString());
     }
 }

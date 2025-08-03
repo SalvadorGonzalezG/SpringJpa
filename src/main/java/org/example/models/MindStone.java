@@ -1,5 +1,8 @@
 package org.example.models;
 
+import lombok.ToString;
+
+@ToString
 public class MindStone extends Stone{
 
      private final static String COLOR = "AMARILLO";
@@ -13,6 +16,7 @@ public class MindStone extends Stone{
 
     @Override
     public void usePower() {
-
-    }
+        // Business Logic
+        System.out.print("Mind control in stone" + this.toString());
+     }
 }

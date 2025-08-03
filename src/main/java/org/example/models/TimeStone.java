@@ -1,5 +1,8 @@
 package org.example.models;
 
+import lombok.ToString;
+
+@ToString
 public class TimeStone extends Stone{
 
     private static final String COLOR = "Green";
@@ -13,6 +16,6 @@ public class TimeStone extends Stone{
 
     @Override
     public void usePower(){
-        System.out.println("");
+        System.out.println("Stop or Speed up Time" + this.toString());
     }
 }

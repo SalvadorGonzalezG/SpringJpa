@@ -1,5 +1,8 @@
 package org.example.models;
 
+import lombok.ToString;
+
+@ToString
 public class SpaceStone extends Stone{
 
 // A Static property belongs to the class and not to the Objetc
@@ -15,6 +18,6 @@ public class SpaceStone extends Stone{
 
     @Override
     public void usePower(){
-        System.out.println("");
+        System.out.println("Travel anywhere in the Universe" + this.toString());
     }
 }
