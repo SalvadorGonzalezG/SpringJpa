@@ -17,6 +17,6 @@ public class MindStone extends Stone{
     @Override
     public void usePower() {
         // Business Logic
-        System.out.print("Mind control in stone" + this.toString());
+        System.out.print("Mind control in stone" + super.toString());
      }
 }

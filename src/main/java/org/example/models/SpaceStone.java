@@ -18,6 +18,6 @@ public class SpaceStone extends Stone{
 
     @Override
     public void usePower(){
-        System.out.println("Travel anywhere in the Universe" + this.toString());
+        System.out.println("Travel anywhere in the Universe" + super.toString());
     }
 }

@@ -14,6 +14,6 @@ public class PowerStone extends Stone{
         super(COLOR, NAME, LOCATION, ENERGY_LAVEL);
     }
     public void usePower(){
-        System.out.println("Increment power & Energy " + this.toString());
+        System.out.println("Increment power & Energy " + super.toString());
     }
 }
