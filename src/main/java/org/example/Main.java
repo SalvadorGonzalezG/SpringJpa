@@ -4,6 +4,7 @@ import org.example.models.MindStone;
 import org.example.models.PowerStone;
 import org.example.models.RealityStone;
 import org.example.models.Stone;
+import org.example.services.GauntletServiceImp;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -22,6 +23,9 @@ public class Main {
 
         reality.usePower();
         System.out.println("---");
+
+        final var gauntletService = new GauntletServiceImp();
+        gauntletService.useGauntlet("");
 
 
 
