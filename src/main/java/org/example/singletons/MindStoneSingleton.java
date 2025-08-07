@@ -10,5 +10,16 @@ import org.example.models.MindStone;
 public class MindStoneSingleton {
 
     // Instancia priveniente de Stone Mind in the models MindsStrone class
-    private static volatile MindStone mindStone;
+    private static volatile MindStone mindStoneInstance;
+    public static MindStone getInstance(){
+        if (mindStoneInstance == null ){
+            log.info("instance for MINDSTONE: " + MindStoneSingleton.class);
+            synchronized (MindStoneSingleton.class){
+               if (mindStoneInstance == null){
+                   mindStoneInstance = new MindStone();
+               }
+            }
+        }
+        return mindStoneInstance;
+    }
 }
