@@ -5,6 +5,7 @@ import org.example.models.PowerStone;
 import org.example.models.RealityStone;
 import org.example.models.Stone;
 import org.example.services.GauntletServiceImp;
+import org.example.singletons.MindStoneSingleton;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -27,6 +28,12 @@ public class Main {
         final var gauntletService = new GauntletServiceImp();
         gauntletService.useGauntlet("");
 
+        var r1 = MindStoneSingleton.getInstance();
+        var r2 = MindStoneSingleton.getInstance();
+
+        if ( r1 == r2){
+            System.out.println("Singleton");
+        }
 
 
     }
