@@ -25,15 +25,21 @@ public class Main {
         reality.usePower();
         System.out.println("---");
 
+        // Instance 1
         final var gauntletService = new GauntletServiceImp();
         gauntletService.useGauntlet("");
 
+        var instance2 = MindStoneSingleton.getInstance();
+
+        System.out.println(instance2);
+        /*
         var r1 = MindStoneSingleton.getInstance();
         var r2 = MindStoneSingleton.getInstance();
 
         if ( r1 == r2){
             System.out.println("Singleton");
-        }
+        }*/
+
 
 
     }
