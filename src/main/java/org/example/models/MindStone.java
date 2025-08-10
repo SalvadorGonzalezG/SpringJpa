@@ -12,10 +12,10 @@ public class MindStone extends Stone{
      private final static String COLOR = "AMARILLO";
      private final static String NAME = "MIND";
      private final static String LOCATION = "In the Loki Center";
-     private final static int ENERGY_LAVEL = 9;
+     private final static int ENERGY_LEVEL = 9;
 
     public MindStone() {
-        super(COLOR, NAME, LOCATION, ENERGY_LAVEL);
+        super(COLOR, NAME, LOCATION, ENERGY_LEVEL);
     }
 
     @Override
@@ -23,27 +23,30 @@ public class MindStone extends Stone{
         // Business Logic
         System.out.print("Mind control in stone" + super.toString());
      }
-     public MindStone getPrototipe(){
+
+     public MindStone getPrototype(){
         try(
-                // Convert object into byte (Serializando)
+                // Convert Object into bytes
                 final var bos = new ByteArrayOutputStream();
                 final var oos = new ObjectOutputStream(bos);
-                ){
-            // Serialize object (clone) objeto se auto serializa y se auto clona
-            oos.writeObject(this);
-            oos.flush();
+                ) {
+                // Serialize (clone) object
+                oos.writeObject(this);
+                oos.flush();
             try(
-                    // Deserializando
+                    // deseariz
                     final var bis = new ByteArrayInputStream(bos.toByteArray());
                     final var ois = new ObjectInputStream(bis);
-                    ){
-                // Cast
+                    ) {
+                //cast
                 return (MindStone) ois.readObject();
-            }
-        }catch (IOException | ClassNotFoundException e){
-            log.warning("Cant cast or read class");
-            throw new RuntimeException(e.getMessage());
         }
+        }catch (IOException | ClassNotFoundException e)
 
+    {
+        log.warning("Cant cas or read class");
+        throw new RuntimeException(e.getMessage());
+        }
      }
+
 }

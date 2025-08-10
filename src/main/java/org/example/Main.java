@@ -40,6 +40,7 @@ public class Main {
             System.out.println("Singleton");
         }*/
 
+        MindStonefinal var = new M
 
 
     }
