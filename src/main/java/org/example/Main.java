@@ -40,8 +40,16 @@ public class Main {
             System.out.println("Singleton");
         }*/
 
-        MindStonefinal var = new M
+        // instance1 prototipe
+        final var mindS = new MindStone();
 
+        System.out.println(mindS);
+        System.out.println(System.identityHashCode(mindS));
+        System.out.println(System.identityHashCode(mind));
+
+        // instance2 prototype clone
+        final var mindProto = mindS.getPrototype();
+        System.out.println(System.identityHashCode(mindProto));
 
     }
 }
