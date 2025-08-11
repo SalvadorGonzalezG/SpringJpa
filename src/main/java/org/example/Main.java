@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.models.MindStone;
-import org.example.models.PowerStone;
-import org.example.models.RealityStone;
-import org.example.models.Stone;
+import org.example.models.*;
 import org.example.services.GauntletServiceImp;
 import org.example.singletons.MindStoneSingleton;
 
@@ -50,6 +47,10 @@ public class Main {
         // instance2 prototype clone
         final var mindProto = mindS.getPrototype();
         System.out.println(System.identityHashCode(mindProto));
+
+        //instance 4 spaceStone Prototype
+        final var spaceStonePrototype1 = new SpaceStone();
+        System.out.print(System.identityHashCode(spaceStonePrototype1) + " spaceStone");
 
     }
 }
