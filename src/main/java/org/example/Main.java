@@ -50,7 +50,12 @@ public class Main {
 
         //instance 4 spaceStone Prototype
         final var spaceStonePrototype1 = new SpaceStone();
-        System.out.print(System.identityHashCode(spaceStonePrototype1) + " spaceStone");
+        System.out.println(System.identityHashCode(spaceStonePrototype1) + " spaceStone");
 
+        final var soulStoneProto = new SoulStone();
+        System.out.println(System.identityHashCode(soulStoneProto) + " SoulStone");
+
+        final var realityStone = new RealityStone();
+        System.out.println(System.identityHashCode(realityStone) + " RealityStone");
     }
 }

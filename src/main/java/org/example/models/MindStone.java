@@ -38,7 +38,7 @@ public class MindStone extends Stone{
                     final var bis = new ByteArrayInputStream(bos.toByteArray());
                     final var ois = new ObjectInputStream(bis);
                     ) {
-                //cast
+                // Cast
                 return (MindStone) ois.readObject();
         }
         }catch (IOException | ClassNotFoundException e)
