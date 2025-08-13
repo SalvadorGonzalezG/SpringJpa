@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.models.*;
+import org.example.prototypes.Prototype;
 import org.example.services.GauntletServiceImp;
 import org.example.singletons.MindStoneSingleton;
 
@@ -57,5 +58,12 @@ public class Main {
 
         final var realityStone = new RealityStone();
         System.out.println(System.identityHashCode(realityStone) + " RealityStone");
+
+
+        final var mindP = new MindStone();
+
+        final var mindProtos = Prototype.mindPrototype.buildStone(mindP);
+        System.out.println(System.identityHashCode(mindProtos) + " Prototypo MindStone");
+
     }
 }
