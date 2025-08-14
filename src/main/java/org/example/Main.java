@@ -65,5 +65,9 @@ public class Main {
         final var mindProtos = Prototype.mindPrototype.buildStone(mindP);
         System.out.println(System.identityHashCode(mindProtos) + " Prototypo MindStone");
 
+        final var realityP = new RealityStone();
+        final var realiteProto = Prototype.realityPrototype.buildStone(realityP);
+        System.out.println(System.identityHashCode(realiteProto) + " RealityStone Prototype");
+
     }
 }
