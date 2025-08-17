@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.factories.PowerStoneFactory;
+import org.example.factories.TimeStoneFactory;
 import org.example.models.*;
 import org.example.prototypes.Prototype;
 import org.example.services.GauntletServiceImp;
@@ -69,5 +71,17 @@ public class Main {
         final var realiteProto = Prototype.realityPrototype.buildStone(realityP);
         System.out.println(System.identityHashCode(realiteProto) + " RealityStone Prototype");
 
+        //Use Factory Method
+        System.setProperty("scope", "singleton");
+
+        final var timeStoneFactory = new TimeStoneFactory();
+        var timeStone = timeStoneFactory.createStone();
+
+        System.out.println(timeStone + " Factory");
+
+        final var powerStonefactory = new PowerStoneFactory();
+        var powerStone = powerStonefactory.createStone();
+
+        System.out.println(powerStone + " Factory");
     }
 }

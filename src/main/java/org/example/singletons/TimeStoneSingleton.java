@@ -12,6 +12,7 @@ public class TimeStoneSingleton {
 
     public static TimeStone getInstance(){
         if (timeStoneInstance == null){
+            log.warning("Create instance to TimeStone " + TimeStoneSingleton.class);
             synchronized (TimeStoneSingleton.class){
                 if (timeStoneInstance == null){
                     timeStoneInstance = new TimeStone();
