@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.factories.PowerStoneFactory;
+import org.example.factories.RealityStoneFactory;
 import org.example.factories.TimeStoneFactory;
 import org.example.models.*;
 import org.example.prototypes.Prototype;
@@ -26,8 +27,8 @@ public class Main {
         System.out.println("---");
 
         // Instance 1
-        final var gauntletService = new GauntletServiceImp();
-        gauntletService.useGauntlet("");
+        //final var gauntletService = new GauntletServiceImp();
+        //gauntletService.useGauntlet("");
 
         var instance2 = MindStoneSingleton.getInstance();
 
@@ -83,5 +84,13 @@ public class Main {
         var powerStone = powerStonefactory.createStone();
 
         System.out.println(powerStone + " Factory");
+
+        var realityFactory = new RealityStoneFactory();
+
+        final var gauntletSer = new GauntletServiceImp();
+        gauntletSer.setReality(realityFactory.createStone());
+        gauntletSer.useGauntlet("reality");
+
+
     }
 }

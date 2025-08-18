@@ -6,7 +6,7 @@ import lombok.extern.java.Log;
 import java.io.*;
 
 @Log
-@ToString
+@ToString(callSuper = true)
 public class RealityStone extends Stone{
 
     private static final String COLOR = "Red";
