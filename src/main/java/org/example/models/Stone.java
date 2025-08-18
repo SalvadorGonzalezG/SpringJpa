@@ -9,8 +9,9 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+
 @EqualsAndHashCode
-@ToString
+@ToString(callSuper = true)
 public abstract class Stone implements Serializable {
 
    protected String color;
