@@ -91,6 +91,10 @@ public class Main {
         gauntletSer.setReality(realityFactory.createStone());
         gauntletSer.useGauntlet("reality");
 
+        final var powerFactory = new PowerStoneFactory();
+        gauntletSer.setPowerStone(powerFactory.createStone());
+        gauntletSer.useGauntlet("power");
+
 
     }
 }
