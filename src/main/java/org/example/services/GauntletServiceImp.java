@@ -41,5 +41,12 @@ public class GauntletServiceImp implements IGauntletService {
     @Override
     public void useFullPower(){
 
+        if (this.mindStone != null && this.powerStone != null
+                && this.reality != null && this.soulStone != null
+                && this.spaceStone != null && timeStone != null){
+            log.info("Use a full POWER of the gauntlet ...");
+        } else {
+            throw  new IllegalStateException("Cant be using full power because service have fields null ");
+        }
     }
 }

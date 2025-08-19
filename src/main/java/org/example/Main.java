@@ -95,6 +95,8 @@ public class Main {
         gauntletSer.setPowerStone(powerFactory.createStone());
         gauntletSer.useGauntlet("power");
 
+        gauntletSer.useFullPower();
+
 
     }
 }
