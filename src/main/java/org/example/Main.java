@@ -1,8 +1,6 @@
 package org.example;
 
-import org.example.factories.PowerStoneFactory;
-import org.example.factories.RealityStoneFactory;
-import org.example.factories.TimeStoneFactory;
+import org.example.factories.*;
 import org.example.models.*;
 import org.example.prototypes.Prototype;
 import org.example.services.GauntletServiceImp;
@@ -13,11 +11,11 @@ import org.example.singletons.MindStoneSingleton;
 public class Main {
     public static void main(String[] args) {
 
-        final var mind = new MindStone();
+        final var mindR = new MindStone();
         final var power = new PowerStone();
         final var reality = new RealityStone();
 
-        mind.usePower();
+        mindR.usePower();
         System.out.println("-");
 
         power.usePower();
@@ -46,7 +44,7 @@ public class Main {
 
         System.out.println(mindS);
         System.out.println(System.identityHashCode(mindS));
-        System.out.println(System.identityHashCode(mind));
+        //System.out.println(System.identityHashCode(mind));
 
         // instance2 prototype clone
         final var mindProto = mindS.getPrototype();
@@ -94,6 +92,43 @@ public class Main {
         final var powerFactory = new PowerStoneFactory();
         gauntletSer.setPowerStone(powerFactory.createStone());
         gauntletSer.useGauntlet("power");
+
+        final var MindFactory = new MindStoneFactory();
+        gauntletSer.setMindStone(MindFactory.createStone());
+        gauntletSer.useGauntlet("mind");
+
+        final var soulFactory = new SoulStoneFactory();
+        gauntletSer.setSoulStone(soulFactory.createStone());
+        gauntletSer.useGauntlet("soul");
+
+        final var spaceFactory = new SpaceStoneFactory();
+        gauntletSer.setSpaceStone(spaceFactory.createStone());
+        gauntletSer.useGauntlet("space");
+
+        final var timeFactory = new TimeStoneFactory();
+        gauntletSer.setTimeStone(timeFactory.createStone());
+        gauntletSer.useGauntlet("time");
+
+
+        //Create factories to use  Dependency Injection by Constructor
+        final var mdFactory = new MindStoneFactory();
+        final var pwFactory = new PowerStoneFactory();
+        final var rlFactory = new RealityStoneFactory();
+        final var slFactory = new SoulStoneFactory();
+        final var spFactory = new SpaceStoneFactory();
+        final var tmFactory = new TimeStoneFactory();
+
+        // DI by constructor
+        final var gauntletSv = new GauntletServiceImp(
+                mdFactory.createStone(),
+                pwFactory.createStone(),
+                rlFactory.createStone(),
+                slFactory.createStone(),
+                spFactory.createStone(),
+                tmFactory.createStone()
+        );
+        gauntletSv.useFullPower();
+
 
         gauntletSer.useFullPower();
 

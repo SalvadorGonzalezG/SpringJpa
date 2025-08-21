@@ -19,6 +19,17 @@ public class GauntletServiceImp implements IGauntletService {
     private Stone spaceStone;
     private Stone timeStone;
 
+    public GauntletServiceImp(Stone mindStone, Stone powerStone,
+                              Stone reality, Stone soulStone,
+                              Stone spaceStone, Stone timeStone){
+        this.mindStone = mindStone;
+        this.powerStone = powerStone;
+        this.reality = reality;
+        this.soulStone = soulStone;
+        this.spaceStone = spaceStone;
+        this.timeStone = timeStone;
+    }
+
     // Default Constructor
     public GauntletServiceImp(){
 
@@ -28,7 +39,7 @@ public class GauntletServiceImp implements IGauntletService {
     public void useGauntlet(String stoneName) {
 
         switch (stoneName) {
-            case "mindStone" -> log.info("Use Stone: " + mindStone);
+            case "mind" -> log.info("Use Stone: " + mindStone);
             case "power" -> log.info("Use Stone: " + powerStone);
             case "reality" -> log.info("Use Stone: " + reality);
             case "soul" -> log.info("Usse Stone: " + soulStone);
