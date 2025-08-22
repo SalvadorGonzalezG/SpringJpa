@@ -10,7 +10,7 @@ import org.example.singletons.MindStoneSingleton;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
+        /*
         final var mindR = new MindStone();
         final var power = new PowerStone();
         final var reality = new RealityStone();
@@ -38,7 +38,7 @@ public class Main {
         if ( r1 == r2){
             System.out.println("Singleton");
         }*/
-
+        /*
         // instance1 prototipe
         final var mindS = new MindStone();
 
@@ -109,16 +109,18 @@ public class Main {
         gauntletSer.setTimeStone(timeFactory.createStone());
         gauntletSer.useGauntlet("time");
 
-
+    */
         //Create factories to use  Dependency Injection by Constructor
-        final var mdFactory = new MindStoneFactory();
-        final var pwFactory = new PowerStoneFactory();
-        final var rlFactory = new RealityStoneFactory();
-        final var slFactory = new SoulStoneFactory();
-        final var spFactory = new SpaceStoneFactory();
-        final var tmFactory = new TimeStoneFactory();
+         var mdFactory = new MindStoneFactory();
+         var pwFactory = new PowerStoneFactory();
+         var rlFactory = new RealityStoneFactory();
+         var slFactory = new SoulStoneFactory();
+         var spFactory = new SpaceStoneFactory();
+         var tmFactory = new TimeStoneFactory();
 
+         final var gauntletSv = new GauntletServiceImp();
         // DI by constructor
+        /*
         final var gauntletSv = new GauntletServiceImp(
                 mdFactory.createStone(),
                 pwFactory.createStone(),
@@ -127,10 +129,11 @@ public class Main {
                 spFactory.createStone(),
                 tmFactory.createStone()
         );
+         */
+        gauntletSv.useGauntlet("mind");
+
+
         gauntletSv.useFullPower();
-
-
-        gauntletSer.useFullPower();
 
 
     }

@@ -1,5 +1,6 @@
 package org.example.services;
 
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.java.Log;
 import org.example.models.RealityStone;
@@ -7,9 +8,13 @@ import org.example.models.Stone;
 import org.example.singletons.MindStoneSingleton;
 import org.springframework.stereotype.Service;
 
-@Service
+import java.lang.reflect.Field;
+import java.util.Map;
+
+//@Service
 @Log
-@Setter
+//@Setter
+//@NoArgsConstructor
 public class GauntletServiceImp implements IGauntletService {
 
     private Stone mindStone;
@@ -18,6 +23,7 @@ public class GauntletServiceImp implements IGauntletService {
     private Stone soulStone;
     private Stone spaceStone;
     private Stone timeStone;
+    private Object stoneDependency;
 
     public GauntletServiceImp(Stone mindStone, Stone powerStone,
                               Stone reality, Stone soulStone,
@@ -59,5 +65,20 @@ public class GauntletServiceImp implements IGauntletService {
         } else {
             throw  new IllegalStateException("Cant be using full power because service have fields null ");
         }
+    }
+    // DI Dependency Injection by fields
+    public void setStones(Map<String, Stone>stones){
+        stones.forEach((fieldName, stoneDependency) -> {
+            try{
+                // field hace referencya a cada Stone
+                Field field = this.getClass().getDeclaredField(fieldName);
+                field.setAccessible(true); // Se aluna el private de forma temporal
+                field.set(this, stoneDependency); // Dependency Injection
+                log.info("Dependency Injection by Field " + fieldName);
+            }catch (NoSuchFieldException | IllegalAccessException e){
+                log.warning("Error on DI by fields");
+
+            }
+        });
     }
 }
