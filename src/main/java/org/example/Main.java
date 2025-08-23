@@ -130,6 +130,8 @@ public class Main {
                 tmFactory.createStone()
         );
          */
+
+
         gauntletSv.useGauntlet("mind");
 
 
