@@ -110,6 +110,7 @@ public class Main {
         gauntletSer.useGauntlet("time");
 
     */
+        System.setProperty("scope", "singleton");
         //Create factories to use  Dependency Injection by Constructor
          var mdFactory = new MindStoneFactory();
          var pwFactory = new PowerStoneFactory();

@@ -8,7 +8,10 @@ import java.util.function.Consumer;
 public class StoneContext {
 
     public IGauntletService setContext(
+            // funcional interfaces
             Consumer<Void> preConstruct,
-            Consumer<Void>  postConstruct
-    )
+            Consumer<Void> postConstruct
+    ){
+        return  null;
+    }
 }
