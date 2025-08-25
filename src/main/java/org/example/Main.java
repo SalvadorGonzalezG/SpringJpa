@@ -112,43 +112,7 @@ public class Main {
         gauntletSer.useGauntlet("time");
 
     */
-        System.setProperty("scope", "singleton");
-        //Create factories to use  Dependency Injection by Constructor
-         var mindFactory = new MindStoneFactory();
-         var powerFactory = new PowerStoneFactory();
-         var realityFactory = new RealityStoneFactory();
-         var soulFactory = new SoulStoneFactory();
-         var spaceFactory = new SpaceStoneFactory();
-         var timeFactory = new TimeStoneFactory();
 
-         MindStone mind  = (MindStone) mindFactory.createStone();
-         PowerStone power = (PowerStone) powerFactory.createStone();
-         RealityStone reality = (RealityStone) realityFactory.createStone();
-         SoulStone soul =  (SoulStone) soulFactory.createStone();
-         SpaceStone space = (SpaceStone) spaceFactory.createStone();
-         TimeStone time = (TimeStone) timeFactory.createStone();
-
-
-        Map<String, Stone> instances = Map.of(
-                "reality", reality,
-                "soul", soul,
-                    "power", power,
-                    "space", space,
-                    "time", time,
-                    "mind", mind
-
-        );
-
-        final var gauntletSv = new GauntletServiceImp(
-                reality,
-                soul,
-                power,
-                space,
-                time,
-                mind
-        );
-
-        gauntletSv.setStones(instances);
         // DI by constructor
         /*
         final var gauntletSv = new GauntletServiceImp(
@@ -160,13 +124,5 @@ public class Main {
                 tmFactory.createStone()
         );
          */
-
-
-        gauntletSv.useGauntlet("mind");
-
-
-        gauntletSv.useFullPower();
-
-
     }
 }

@@ -1,17 +1,66 @@
 package org.example.configs;
 
+import jakarta.annotation.PostConstruct;
+import lombok.extern.java.Log;
+import org.example.factories.*;
+import org.example.models.*;
+import org.example.services.GauntletServiceImp;
 import org.example.services.IGauntletService;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 // Inversion del control IoC
+@Log
 public class StoneContext {
 
     public IGauntletService setContext(
             // funcional interfaces
             Consumer<Void> preConstruct,
             Consumer<Void> postConstruct
-    ){
-        return  null;
+    ) {
+        //Get Sco´pe
+        log.info("IoC set Scope");
+        System.setProperty("scope", "singleton");
+
+        //@Preconstruct
+        log.info("LoC excecuting preConstruct");
+        preConstruct.accept(null);
+        //Create factories to use  Dependency Injection by Constructor
+        //Inversion de control
+        log.info("LoC creationg factories");
+        var mindFactory = new MindStoneFactory();
+        var powerFactory = new PowerStoneFactory();
+        var realityFactory = new RealityStoneFactory();
+        var soulFactory = new SoulStoneFactory();
+        var spaceFactory = new SpaceStoneFactory();
+        var timeFactory = new TimeStoneFactory();
+
+        log.info("LoC Instance Objects");
+        MindStone mind = (MindStone) mindFactory.createStone();
+        PowerStone power = (PowerStone) powerFactory.createStone();
+        RealityStone reality = (RealityStone) realityFactory.createStone();
+        SoulStone soul = (SoulStone) soulFactory.createStone();
+        SpaceStone space = (SpaceStone) spaceFactory.createStone();
+        TimeStone time = (TimeStone) timeFactory.createStone();
+
+        log.info("loC loading GauntletServicesImp in container");
+        final var gauntletService = new GauntletServiceImp();
+
+        Map<String, Stone> instances = Map.of(
+                "reality", reality,
+                "soul", soul,
+                "power", power,
+                "space", space,
+                "time", time,
+                "mind", mind
+
+        );
+        log.info("loC Di on GauntletServiceImp");
+        gauntletService.setStones(instances);
+        //@PostConstruct
+        log.info("loC excecuting postConstruct");
+        postConstruct.accept(null);
+        return gauntletService;
     }
 }
