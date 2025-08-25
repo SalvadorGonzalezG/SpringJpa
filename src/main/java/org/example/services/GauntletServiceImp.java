@@ -1,12 +1,9 @@
 package org.example.services;
 
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
-import org.example.models.RealityStone;
-import org.example.models.Stone;
-import org.example.singletons.MindStoneSingleton;
-import org.springframework.stereotype.Service;
+import org.example.factories.*;
+import org.example.models.*;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -15,16 +12,17 @@ import java.util.Map;
 @Log
 //@Setter
 //@NoArgsConstructor
+@AllArgsConstructor
 public class GauntletServiceImp implements IGauntletService {
 
-    private Stone mindStone;
-    private Stone powerStone;
-    private Stone reality;
-    private Stone soulStone;
-    private Stone spaceStone;
-    private Stone timeStone;
-    private Object stoneDependency;
-
+    private MindStone mind;
+    private PowerStone power;
+    private RealityStone reality;
+    private SoulStone soul;
+    private SpaceStone space;
+    private TimeStone time;
+    //private Object stoneDependency;
+/*
     public GauntletServiceImp(Stone mindStone, Stone powerStone,
                               Stone reality, Stone soulStone,
                               Stone spaceStone, Stone timeStone){
@@ -35,9 +33,9 @@ public class GauntletServiceImp implements IGauntletService {
         this.spaceStone = spaceStone;
         this.timeStone = timeStone;
     }
-
+*/
     // Default Constructor
-    public GauntletServiceImp(){
+    public GauntletServiceImp(RealityStone reality, SoulStone soul, PowerStone power, SpaceStone space, TimeStone time, MindStone mind){
 
     }
 
@@ -45,12 +43,12 @@ public class GauntletServiceImp implements IGauntletService {
     public void useGauntlet(String stoneName) {
 
         switch (stoneName) {
-            case "mind" -> log.info("Use Stone: " + mindStone);
-            case "power" -> log.info("Use Stone: " + powerStone);
+            case "mind" -> log.info("Use Stone: " + mind);
+            case "power" -> log.info("Use Stone: " + power);
             case "reality" -> log.info("Use Stone: " + reality);
-            case "soul" -> log.info("Usse Stone: " + soulStone);
-            case "space" -> log.info("Use stone: " + spaceStone);
-            case "time" -> log.info("Use Stone: "  + timeStone);
+            case "soul" -> log.info("Usse Stone: " + soul);
+            case "space" -> log.info("Use stone: " + space);
+            case "time" -> log.info("Use Stone: "  + time);
             default ->  throw new IllegalArgumentException("invalid Name");
         }
     }
@@ -58,9 +56,9 @@ public class GauntletServiceImp implements IGauntletService {
     @Override
     public void useFullPower(){
 
-        if (this.mindStone != null && this.powerStone != null
-                && this.reality != null && this.soulStone != null
-                && this.spaceStone != null && timeStone != null){
+        if (this.mind != null && this.power != null
+                && this.reality != null && this.soul != null
+                && this.space != null && this.time != null){
             log.info("Use a full POWER of the gauntlet ...");
         } else {
             throw  new IllegalStateException("Cant be using full power because service have fields null ");

@@ -6,6 +6,8 @@ import org.example.prototypes.Prototype;
 import org.example.services.GauntletServiceImp;
 import org.example.singletons.MindStoneSingleton;
 
+import java.util.Map;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -112,14 +114,41 @@ public class Main {
     */
         System.setProperty("scope", "singleton");
         //Create factories to use  Dependency Injection by Constructor
-         var mdFactory = new MindStoneFactory();
-         var pwFactory = new PowerStoneFactory();
-         var rlFactory = new RealityStoneFactory();
-         var slFactory = new SoulStoneFactory();
-         var spFactory = new SpaceStoneFactory();
-         var tmFactory = new TimeStoneFactory();
+         var mindFactory = new MindStoneFactory();
+         var powerFactory = new PowerStoneFactory();
+         var realityFactory = new RealityStoneFactory();
+         var soulFactory = new SoulStoneFactory();
+         var spaceFactory = new SpaceStoneFactory();
+         var timeFactory = new TimeStoneFactory();
 
-         final var gauntletSv = new GauntletServiceImp();
+         MindStone mind  = (MindStone) mindFactory.createStone();
+         PowerStone power = (PowerStone) powerFactory.createStone();
+         RealityStone reality = (RealityStone) realityFactory.createStone();
+         SoulStone soul =  (SoulStone) soulFactory.createStone();
+         SpaceStone space = (SpaceStone) spaceFactory.createStone();
+         TimeStone time = (TimeStone) timeFactory.createStone();
+
+
+        Map<String, Stone> instances = Map.of(
+                "reality", reality,
+                "soul", soul,
+                    "power", power,
+                    "space", space,
+                    "time", time,
+                    "mind", mind
+
+        );
+
+        final var gauntletSv = new GauntletServiceImp(
+                reality,
+                soul,
+                power,
+                space,
+                time,
+                mind
+        );
+
+        gauntletSv.setStones(instances);
         // DI by constructor
         /*
         final var gauntletSv = new GauntletServiceImp(
