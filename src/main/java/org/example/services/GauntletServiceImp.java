@@ -1,7 +1,9 @@
 package org.example.services;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.extern.java.Log;
 import org.example.factories.*;
 import org.example.models.*;
@@ -11,9 +13,10 @@ import java.util.Map;
 
 //@Service
 @Log
-//@Setter
+@Setter
+@Getter
 @NoArgsConstructor
-//AllArgsConstructor
+@AllArgsConstructor
 public class GauntletServiceImp implements IGauntletService {
 
     private MindStone mind;

@@ -61,6 +61,27 @@ public class StoneContext {
         //@PostConstruct
         log.info("loC excecuting postConstruct");
         postConstruct.accept(null);
+
         return gauntletService;
+    }
+
+    // Clean the context
+    public void destroyContext(
+            IGauntletService iGauntletService
+    ){
+        log.info("Cleaning context");
+        if(iGauntletService instanceof GauntletServiceImp){
+            ((GauntletServiceImp) iGauntletService).getMind().clear();
+            ((GauntletServiceImp) iGauntletService).getTime().clear();
+            ((GauntletServiceImp) iGauntletService).getSoul().clear();
+            ((GauntletServiceImp) iGauntletService).getReality().clear();
+            ((GauntletServiceImp) iGauntletService).getSpace().clear();
+            ((GauntletServiceImp) iGauntletService).getPower().clear();
+
+
+        }
+        // destrucción del contexto
+        log.info("Cleaning Properties");
+        System.clearProperty("scope");
     }
 }
