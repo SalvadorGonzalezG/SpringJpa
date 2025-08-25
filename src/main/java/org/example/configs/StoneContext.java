@@ -1,6 +1,8 @@
 package org.example.configs;
 
 import jakarta.annotation.PostConstruct;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.java.Log;
 import org.example.factories.*;
 import org.example.models.*;
@@ -12,9 +14,10 @@ import java.util.function.Consumer;
 
 // Inversion del control IoC
 @Log
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StoneContext {
 
-    public IGauntletService setContext(
+    public static IGauntletService setContext(
             // funcional interfaces
             Consumer<Void> preConstruct,
             Consumer<Void> postConstruct
@@ -66,7 +69,7 @@ public class StoneContext {
     }
 
     // Clean the context
-    public void destroyContext(
+    public static void destroyContext(
             IGauntletService iGauntletService
     ){
         log.info("Cleaning context");

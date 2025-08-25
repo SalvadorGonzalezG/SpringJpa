@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.configs.StoneContext;
 import org.example.factories.*;
 import org.example.models.*;
 import org.example.prototypes.Prototype;
@@ -124,5 +125,13 @@ public class Main {
                 tmFactory.createStone()
         );
          */
+        final var gauntletService = StoneContext.setContext(
+                pre ->System.out.println("Do Somting 1"),
+                post ->System.out.println("Do somting 2")
+        );
+        gauntletService.useGauntlet("power");
+        gauntletService.useFullPower();
+
+        StoneContext.destroyContext(gauntletService);
     }
 }
